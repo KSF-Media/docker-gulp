@@ -1,6 +1,6 @@
 FROM node
 
-RUN npm install -g gulp gulp-util gulp-less gulp-uglify gulp-concat
+RUN npm install -g gulp
 
 ADD run.sh /run.sh
 RUN chmod +x /run.sh
