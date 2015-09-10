@@ -1,12 +1,13 @@
 FROM node
 
+RUN npm install -g gulp
+
+ADD run.sh /run.sh
+RUN chmod +x /run.sh
+
 WORKDIR /src
 
-#RUN npm install gulp
-RUN npm install -g gulp
-#RUN npm install gulp-less
-RUN npm install -g gulp-less
-RUN npm install -g gulp-util
+ENTRYPOINT ["/run.sh"]
 
-CMD gulp
+CMD ["default"]
 
