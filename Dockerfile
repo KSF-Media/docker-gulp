@@ -2,13 +2,16 @@ FROM node:latest
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
-ENV PATH=$PATH:/home/node/.npm-global/bin
+ENV NPM_CONFIG_PREFIX=/root/.npm-global
+ENV PATH=$PATH:/root/.npm-global/bin
 
 RUN apt-get update && apt-get -y install ruby-full
 
-RUN npm install -g gulp
-RUN npm install --unsafe-perm -g parcel-bundler
+# update yarn to ^1.13.0
+RUN yarn global add yarn@^1.13.0
+RUN rm /usr/local/bin/yarn
+
+RUN yarn global add gulp@3.9.1 parcel-bundler
 
 ADD run.sh /run.sh
 RUN chmod +x /run.sh
