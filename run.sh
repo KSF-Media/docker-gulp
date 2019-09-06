@@ -3,6 +3,6 @@ echo "yarn location and version"
 which yarn
 yarn -v
 
-npm install
+yarn install
 
 gulp $@
